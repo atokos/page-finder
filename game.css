@@ -19,6 +19,7 @@
 
   a {
     color: white;
+    font-size: larger;
   }
 
   h1 {
@@ -27,3 +28,24 @@
   }
 
   .hidden { display:none; }
+
+  body.done::before {
+    content:""; /* required for ::before */
+		position:fixed; /* don't scroll with page */
+		z-index:-100; /* place behind elements on page */
+		width:100%;
+		height:100%;
+    background-color:#14C2CC;
+		background-image: 
+		radial-gradient(circle farthest-side at top right, transparent, #0D64FF), radial-gradient(ellipse farthest-corner at 0% 100%, transparent, #FF00A0);
+		animation:bg-change 1s infinite;
+  }
+
+  @keyframes bg-change {
+    0%, 100% {
+      filter:hue-rotate(0deg);
+    }
+    50% {
+      filter:hue-rotate(-45deg);
+    }
+  }
